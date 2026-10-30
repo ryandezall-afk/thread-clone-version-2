@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, TextInput, View, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import ConversationItem from "../../components/ConversationItem";
+import { CONVERSATIONS } from "../../data/conversationsData";
 
 export default function Messages() {
   return (
@@ -14,7 +16,7 @@ export default function Messages() {
 
       <View style={styles.messagesSearching}>
         <View style={styles.searchContainer}>
-          <Ionicons name="search" size={18} color="#777777" style={styles.searchIcon} />
+          <Ionicons name="search" size={18} color="#777777" />
           <TextInput placeholder="Search" placeholderTextColor="#777777" style={styles.searchInput} />
         </View>
         <ScrollView 
@@ -30,7 +32,15 @@ export default function Messages() {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        
+        {CONVERSATIONS.map((chat) => (
+          <ConversationItem
+            key={chat.id}
+            avatar={chat.avatar}
+            username={chat.username}
+            lastMessage={chat.lastMessage}
+            time={chat.time}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -56,13 +66,13 @@ const styles = StyleSheet.create({
     letterSpacing: -0.5,
   },
   scrollContent: {
-    paddingBottom: 100,
+    paddingBottom: 60,
   },
   messagesSearching: {
     flexDirection: "column",
     justifyContent: "space-between",
     gap: 10,
-    marginBottom: 16,
+    marginBottom: 10,
   },
   searchContainer: {
     flexDirection: "row",
@@ -93,5 +103,4 @@ const styles = StyleSheet.create({
   searchInput: {
     fontSize: 18,
   },
-
 });
