@@ -16,10 +16,16 @@ export function TabBar() {
   const { isTabBarVisible } = useTabBar();
   const translateY = useRef(new Animated.Value(0)).current;
 
+  // Detect which page is currently active:
+  const isHome = pathname === "/" || pathname === "/index";
+  const isMessages = pathname.includes("messages");
+  const isActivity = pathname.includes("activity");
+  const isProfile = pathname.includes("profile");
+
   // Slide down when hidden, slide up when visible
   useEffect(() => {
     Animated.timing(translateY, {
-      toValue: isTabBarVisible ? 0 : 80,
+      toValue: isTabBarVisible ? 0 : 120,
       duration: 250,
       useNativeDriver: true,
     }).start();
@@ -32,18 +38,22 @@ export function TabBar() {
         onPress={() => router.push("/")}
         activeOpacity={0.7}
       >
-        <Ionicons name="home" size={26} style={styles.navIconCurrent} />
+        <Ionicons
+          name={isHome ? "home" : "home-outline"}
+          size={26}
+          color={isHome ? "#FFFFFF" : "#777777"}
+        />
       </TouchableOpacity>
 
       {/* 2. Paper Plane */}
       <TouchableOpacity
-        onPress={() => router.push("/search" as any)}
+        onPress={() => router.push("/messages")}
         activeOpacity={0.7}
       >
         <Ionicons
-          name="paper-plane-outline"
+          name={isMessages ? "paper-plane" : "paper-plane-outline"}
           size={26}
-          style={styles.navIcon}
+          color={isMessages ? "#FFFFFF" : "#777777"}
         />
       </TouchableOpacity>
 
@@ -63,7 +73,11 @@ export function TabBar() {
         onPress={() => router.push("/activity" as any)}
         activeOpacity={0.7}
       >
-        <Ionicons name="heart-outline" size={26} style={styles.navIcon} />
+        <Ionicons
+          name={isActivity ? "heart" : "heart-outline"}
+          size={26}
+          color={isActivity ? "#FFFFFF" : "#777777"}
+        />
       </TouchableOpacity>
 
       {/* 5. Profile Pic */}
@@ -73,7 +87,10 @@ export function TabBar() {
       >
         <Image
           source={{ uri: "https://i.pravatar.cc/150?img=12" }}
-          style={styles.profilePicNav}
+          style={[
+            styles.profilePicNav,
+            isProfile && { borderColor: "#FFFFFF", borderWidth: 1.5 },
+          ]}
         />
       </TouchableOpacity>
     </Animated.View>
