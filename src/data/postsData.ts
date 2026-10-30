@@ -1,0 +1,138 @@
+import { Post } from "../components/PostCard";
+
+export const INITIAL_POSTS: Post[] = [
+  {
+    id: "1",
+    username: "lucky_duck187",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    uniqueContent: "What's New?",
+  },
+  {
+    id: "2",
+    username: "catchmenever_68_.ach",
+    avatar: "https://i.pravatar.cc/150?img=33",
+    paragraphs: [
+      "Check out this amazing sunset! I went hiking today and captured this beautiful moment.",
+      "Golden hour hit the ridge just right tonight. Still can’t believe we caught the sky looking like painted watercolor.",
+      "The trek back down in the dark was an adventure in itself, but views like this make every steep step completely worth it. Definitely making this trail a regular weekend spot.",
+    ],
+    images: [
+      "https://picsum.photos/seed/hike1/600/450",
+      "https://picsum.photos/seed/hike2/600/450",
+      "https://picsum.photos/seed/hike3/600/450",
+    ],
+    likes: "670",
+    comments: "61",
+    reposts: "18",
+    shares: "13",
+  },
+  {
+    id: "3",
+    username: "streamer_conspiracy",
+    avatar: "https://i.pravatar.cc/150?img=60",
+    paragraphs: [
+      "Remember when streaming was supposed to save us from cable? For a glorious few years, paying $8 a month gave you instant access to virtually every movie and show you actually cared about, with zero commercial interruptions and an interface that just worked. It felt like the future had finally arrived, completely dismantling the bloated, predatory channel bundles that made traditional television so unbearable to deal with.",
+      "Fast forward to today, and we’ve somehow engineered an ecosystem that is exponentially worse and more expensive than cable ever was. Every legacy media studio decided they needed their own proprietary platform, chopped up classic catalogs into exclusive licensing silos, and steadily hiked prices every six months. Now you need four or five separate subscriptions just to follow basic pop culture, only to still get hit with 90-second unskippable ad breaks on an \"ad-supported tier\" you are literally already paying for.",
+    ],
+    likes: "2,345",
+    comments: "101",
+    reposts: "59",
+    shares: "45",
+  },
+  {
+    id: "4",
+    username: "dev_danielle",
+    avatar: "https://i.pravatar.cc/150?img=47",
+    paragraphs: [
+      "There is no greater panic than code that works flawlessly on your laptop, but throws a 30-line red screen error the second you test it on your physical phone at midnight.",
+      "Root cause? A missing semicolon in a JSON file.",
+    ],
+    likes: "1,892",
+    comments: "214",
+    reposts: "140",
+    shares: "88",
+  },
+  {
+    id: "5",
+    username: "neon_wanderer",
+    avatar: "https://i.pravatar.cc/150?img=15",
+    paragraphs: [
+      "Tokyo rainy nights hit completely different. Neon reflections in the Shibuya puddles make the entire city look like Blade Runner.",
+    ],
+    images: [
+      "https://picsum.photos/seed/tokyo1/600/450",
+      "https://picsum.photos/seed/tokyo2/600/450",
+      "https://picsum.photos/seed/tokyo3/600/450",
+    ],
+    likes: "4,120",
+    comments: "89",
+    reposts: "312",
+    shares: "95",
+  },
+  {
+    id: "6",
+    username: "daily_minimalist",
+    avatar: "https://i.pravatar.cc/150?img=20",
+    content: "Less is more. Especially when writing CSS.",
+    likes: "8,921",
+    comments: "430",
+    reposts: "1,120",
+    shares: "340",
+  },
+  {
+    id: "7",
+    username: "coffee_and_syntax",
+    avatar: "https://i.pravatar.cc/150?img=28",
+    paragraphs: [
+      "Weekend coding sprint fueled by double-shot oat flat whites and lo-fi beats. Building a mobile app in Expo React Native today!",
+    ],
+    images: [
+      "https://picsum.photos/seed/coffee1/600/450",
+      "https://picsum.photos/seed/coffee2/600/450",
+    ],
+    likes: "542",
+    comments: "38",
+    reposts: "14",
+    shares: "9",
+  },
+  {
+    id: "8",
+    username: "retro_gamer_rob",
+    avatar: "https://i.pravatar.cc/150?img=52",
+    paragraphs: [
+      "Nothing in modern tech will ever match the sheer terror and adrenaline of waiting to see if your scratched PlayStation 2 disc would boot past the startup sound.",
+    ],
+    likes: "12.4K",
+    comments: "812",
+    reposts: "2.3K",
+    shares: "650",
+  },
+  {
+    id: "9",
+    username: "arch_digest_daily",
+    avatar: "https://i.pravatar.cc/150?img=68",
+    paragraphs: [
+      "Brutalist architecture in modern Scandinavian libraries. The raw concrete angles paired with warm natural timber create insane geometric shadows.",
+    ],
+    images: [
+      "https://picsum.photos/seed/arch1/600/450",
+      "https://picsum.photos/seed/arch2/600/450",
+    ],
+    likes: "1,670",
+    comments: "54",
+    reposts: "72",
+    shares: "31",
+  },
+  {
+    id: "10",
+    username: "tech_insider_yyc",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    paragraphs: [
+      "Serious question: What's one mobile app whose UI design you genuinely enjoy opening every day? For me it's Linear and Threads.",
+    ],
+    likes: "740",
+    comments: "310",
+    reposts: "45",
+    shares: "19",
+  },
+];
