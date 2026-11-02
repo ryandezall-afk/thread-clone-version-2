@@ -1,0 +1,200 @@
+import { ActivityItem as ActivityItemType } from "@/data/activitiesData";
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+export interface ActivityItemProps {
+  activity: ActivityItemType;
+  onPress?: () => void;
+}
+
+export function ActivityItem({ activity, onPress }: ActivityItemProps) {
+  const username = activity.post?.username ?? activity.user?.username ?? "";
+  const avatar = activity.post?.avatar ?? activity.user?.avatar ?? "";
+  const postContent =
+    activity.post?.paragraphs?.[0] ?? activity.post?.content ?? "";
+  const thumbnail = activity.post?.images?.[0];
+  return (
+    <View>
+      <TouchableOpacity
+        onPress={onPress}
+        activeOpacity={0.7}
+        disabled={!onPress}
+      >
+        <View style={styles.card}>
+          <View style={styles.leftSide}>
+            <Image source={{ uri: avatar }} style={styles.profilePic} />
+          </View>
+
+          <View style={styles.rightSide}>
+            <View style={styles.header}>
+              <View style={styles.userRow}>
+                <Text style={styles.username}>{username}</Text>
+                {activity.isVerified && (
+                  <Ionicons name="checkmark-circle" size={14} color="#0095F6" />
+                )}
+                <Text style={styles.timeActivity}>{activity.time}</Text>
+              </View>
+
+              {activity.type === "follow" && (
+                <Text style={styles.followButton}>Follow</Text>
+              )}
+            </View>
+
+            <Text style={styles.subtitle}>{activity.subtitle}</Text>
+
+            {activity.type === "post" && (
+              <>
+                <View style={styles.postPreview}>
+                  <Text style={styles.postContent} numberOfLines={3}>
+                    {postContent}
+                  </Text>
+                  {thumbnail && (
+                    <Image
+                      source={{ uri: thumbnail }}
+                      style={styles.postThumbnail}
+                    />
+                  )}
+                </View>
+
+                <View style={styles.postInfo}>
+                  <View style={styles.actionItem}>
+                    <Ionicons
+                      name="heart-outline"
+                      style={styles.actionIcon}
+                      size={18}
+                    />
+                    <Text style={styles.actionCount}>
+                      {activity.post?.likes ?? 0}
+                    </Text>
+                  </View>
+                  <View style={styles.actionItem}>
+                    <Ionicons
+                      name="chatbubble-outline"
+                      style={styles.actionIcon}
+                      size={18}
+                    />
+                    <Text style={styles.actionCount}>
+                      {activity.post?.comments ?? 0}
+                    </Text>
+                  </View>
+                  <View style={styles.actionItem}>
+                    <MaterialCommunityIcons
+                      name="repeat-variant"
+                      style={styles.actionIcon}
+                      size={20}
+                    />
+                    <Text style={styles.actionCount}>
+                      {activity.post?.reposts ?? 0}
+                    </Text>
+                  </View>
+                  <View style={styles.actionItem}>
+                    <Feather name="send" style={styles.actionIcon} size={16} />
+                    <Text style={styles.actionCount}>
+                      {activity.post?.shares ?? 0}
+                    </Text>
+                  </View>
+                </View>
+              </>
+            )}
+          </View>
+        </View>
+      </TouchableOpacity>
+
+      <View style={styles.divider} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: {
+    flexDirection: "row",
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+  },
+  leftSide: {
+    marginRight: 10,
+  },
+  profilePic: {
+    borderRadius: 100,
+    width: 40,
+    height: 40,
+  },
+  rightSide: {
+    flex: 1,
+    justifyContent: "space-evenly",
+    gap: 4,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  userRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  username: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FFFFFF",
+    marginRight: 2,
+  },
+  timeActivity: {
+    color: "#777777",
+    fontSize: 14,
+  },
+  followButton: {
+    color: "#000000",
+    fontWeight: "bold",
+    backgroundColor: "#FFFFFF",
+    fontSize: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  subtitle: {
+    color: "#777777",
+    fontSize: 14,
+  },
+  postPreview: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 4,
+  },
+  postContent: {
+    color: "#FFFFFF",
+    fontSize: 15,
+    flex: 1,
+    marginRight: 12,
+  },
+  postThumbnail: {
+    width: 44,
+    height: 44,
+    borderRadius: 8,
+  },
+  postInfo: {
+    flexDirection: "row",
+    gap: 20,
+    marginTop: 6,
+  },
+  actionItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  actionIcon: {
+    color: "#FFFFFF",
+  },
+  actionCount: {
+    color: "#FFFFFF",
+    fontSize: 14,
+  },
+  divider: {
+    height: 0.5,
+    backgroundColor: "#262626",
+    width: "100%",
+  },
+});

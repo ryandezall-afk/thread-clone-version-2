@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { usePathname, useRouter } from "expo-router";
+import { useEffect, useRef } from "react";
 import {
   Animated,
   Image,
@@ -6,8 +8,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { usePathname, useRouter } from "expo-router";
 import { useTabBar } from "./TabBarContext";
 
 export function TabBar() {
@@ -34,10 +34,7 @@ export function TabBar() {
   return (
     <Animated.View style={[styles.navbar, { transform: [{ translateY }] }]}>
       {/* 1. Home */}
-      <TouchableOpacity
-        onPress={() => router.push("/")}
-        activeOpacity={0.7}
-      >
+      <TouchableOpacity onPress={() => router.push("/")} activeOpacity={0.7}>
         <Ionicons
           name={isHome ? "home" : "home-outline"}
           size={26}

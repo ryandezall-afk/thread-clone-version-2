@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { useRef } from "react";
 import {
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -8,7 +9,6 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
 import { PostCard } from "../components/PostCard";
 import { useTabBar } from "../components/TabBarContext";
 import { INITIAL_POSTS } from "../data/postsData";
