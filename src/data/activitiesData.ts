@@ -1,18 +1,18 @@
 import { INITIAL_POSTS, Post } from "./postsData";
 
 export interface ActivityItem {
-    id: string;
-    type: "post" | "follow";
-    time: string;
-    subtitle: string;
-    isVerified?: boolean;
-    post?: Post;
-    user? : { username: string; avatar: string; };
+  id: string;
+  type: "post" | "follow";
+  time: string;
+  subtitle: string;
+  isVerified?: boolean;
+  post?: Post;
+  user?: { username: string; avatar: string };
 }
 
 export interface ActivitySection {
-    title: string;
-    data: ActivityItem[];
+  title: string;
+  data: ActivityItem[];
 }
 
 export const ACTIVITY_SECTIONS: ActivitySection[] = [
@@ -37,8 +37,9 @@ export const ACTIVITY_SECTIONS: ActivitySection[] = [
         time: "4d",
         subtitle: "Follow suggestion",
         user: {
-          username: "llyandro_",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+          username: "for_the_people_456",
+          avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
         },
       },
       {

@@ -28,19 +28,33 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
           <View style={styles.rightSide}>
             <View style={styles.header}>
               <View style={styles.userRow}>
-                <Text style={styles.username}>{username}</Text>
-                {activity.isVerified && (
-                  <Ionicons name="checkmark-circle" size={14} color="#0095F6" />
-                )}
-                <Text style={styles.timeActivity}>{activity.time}</Text>
+                <View style={styles.topRow}>
+                  <Text style={styles.username}>{username}</Text>
+                  {activity.isVerified && (
+                    <Ionicons
+                      name="checkmark-circle"
+                      size={14}
+                      color="#0095F6"
+                    />
+                  )}
+                  <Text style={styles.timeActivity}>{activity.time}</Text>
+                </View>
+                <View style={styles.bottomRow}>
+                  <Text style={styles.subtitle}>{activity.subtitle}</Text>
+                </View>
               </View>
 
               {activity.type === "follow" && (
                 <Text style={styles.followButton}>Follow</Text>
               )}
-            </View>
 
-            <Text style={styles.subtitle}>{activity.subtitle}</Text>
+              {activity.type === "post" && (
+                <Image
+                  source={{ uri: thumbnail }}
+                  style={styles.postThumbnail}
+                />
+              )}
+            </View>
 
             {activity.type === "post" && (
               <>
@@ -48,12 +62,6 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
                   <Text style={styles.postContent} numberOfLines={3}>
                     {postContent}
                   </Text>
-                  {thumbnail && (
-                    <Image
-                      source={{ uri: thumbnail }}
-                      style={styles.postThumbnail}
-                    />
-                  )}
                 </View>
 
                 <View style={styles.postInfo}>
@@ -130,9 +138,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   userRow: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  topRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
+    gap: 4,
+  },
+  bottomRow: {
+    marginTop: 1,
   },
   username: {
     fontSize: 16,
@@ -167,8 +182,6 @@ const styles = StyleSheet.create({
   postContent: {
     color: "#FFFFFF",
     fontSize: 15,
-    flex: 1,
-    marginRight: 12,
   },
   postThumbnail: {
     width: 44,
