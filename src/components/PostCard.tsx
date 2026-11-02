@@ -1,32 +1,17 @@
-import React from "react";
+import { Post } from "@/data/postsData";
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   Image,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View,
+  View
 } from "react-native";
-import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-export interface Post {
-  id: string;
-  username: string;
-  avatar: string;
-  uniqueContent?: string;
-  paragraphs?: string[];
-  content?: string;
-  images?: string[];
-  likes?: number | string;
-  comments?: number | string;
-  reposts?: number | string;
-  shares?: number | string;
-}
-
-interface PostCardProps {
+export interface PostCardProps {
   post: Post;
   onPress?: () => void;
-}
+};
 
 export function PostCard({ post, onPress }: PostCardProps) {
   return (

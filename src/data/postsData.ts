@@ -1,4 +1,16 @@
-import { Post } from "../components/PostCard";
+export interface Post {
+  id: string;
+  username: string;
+  avatar: string;
+  uniqueContent?: string;
+  paragraphs?: string[];
+  content?: string;
+  images?: string[];
+  likes?: number | string;
+  comments?: number | string;
+  reposts?: number | string;
+  shares?: number | string;
+};
 
 export const INITIAL_POSTS: Post[] = [
   {
@@ -21,7 +33,7 @@ export const INITIAL_POSTS: Post[] = [
       "https://picsum.photos/seed/hike2/600/450",
       "https://picsum.photos/seed/hike3/600/450",
     ],
-    likes: "670",
+    likes: "678",
     comments: "61",
     reposts: "18",
     shares: "13",
@@ -32,7 +44,7 @@ export const INITIAL_POSTS: Post[] = [
     avatar: "https://i.pravatar.cc/150?img=60",
     paragraphs: [
       "Remember when streaming was supposed to save us from cable? For a glorious few years, paying $8 a month gave you instant access to virtually every movie and show you actually cared about, with zero commercial interruptions and an interface that just worked. It felt like the future had finally arrived, completely dismantling the bloated, predatory channel bundles that made traditional television so unbearable to deal with.",
-      "Fast forward to today, and we’ve somehow engineered an ecosystem that is exponentially worse and more expensive than cable ever was. Every legacy media studio decided they needed their own proprietary platform, chopped up classic catalogs into exclusive licensing silos, and steadily hiked prices every six months. Now you need four or five separate subscriptions just to follow basic pop culture, only to still get hit with 90-second unskippable ad breaks on an \"ad-supported tier\" you are literally already paying for.",
+      'Fast forward to today, and we’ve somehow engineered an ecosystem that is exponentially worse and more expensive than cable ever was. Every legacy media studio decided they needed their own proprietary platform, chopped up classic catalogs into exclusive licensing silos, and steadily hiked prices every six months. Now you need four or five separate subscriptions just to follow basic pop culture, only to still get hit with 90-second unskippable ad breaks on an "ad-supported tier" you are literally already paying for.',
     ],
     likes: "2,345",
     comments: "101",

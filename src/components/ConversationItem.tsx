@@ -1,21 +1,18 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, ImageSourcePropType } from "react-native";
+import { Conversation } from "@/data/conversationsData";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export type ConversationProps = {
-  avatar: ImageSourcePropType;
-  username: string;
-  lastMessage: string;
-  time: string;
+  conversation: Conversation;
 };
 
-export default function ConversationItem({ avatar, username, lastMessage, time }: ConversationProps) {
+export default function ConversationItem({ conversation }: ConversationProps) {
   return (
     <View style={styles.container}>
-      <Image source={avatar} style={styles.avatar} />
+      <Image source={conversation.avatar} style={styles.avatar} />
       <View style={styles.content}>
-        <Text style={styles.username}>{username}</Text>
+        <Text style={styles.username}>{conversation.username}</Text>
         <Text style={styles.subtext}>
-          {lastMessage} · {time}
+          {conversation.lastMessage} · {conversation.time}
         </Text>
       </View>
     </View>

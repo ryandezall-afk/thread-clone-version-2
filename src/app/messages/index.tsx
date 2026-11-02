@@ -1,7 +1,6 @@
-import React from "react";
-import { StyleSheet, Text, TouchableOpacity, TextInput, View, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import ConversationItem from "../../components/ConversationItem";
 import { CONVERSATIONS } from "../../data/conversationsData";
 
@@ -17,13 +16,18 @@ export default function Messages() {
       <View style={styles.messagesSearching}>
         <View style={styles.searchContainer}>
           <Ionicons name="search" size={18} color="#777777" />
-          <TextInput placeholder="Search" placeholderTextColor="#777777" style={styles.searchInput} />
+          <TextInput
+            placeholder="Search"
+            placeholderTextColor="#777777"
+            style={styles.searchInput}
+          />
         </View>
-        <ScrollView 
-        contentContainerStyle={styles.searchFilters}
-        horizontal
-        >
-          <Ionicons name="reorder-three-outline" size={20} style={styles.pillOutline} />
+        <ScrollView contentContainerStyle={styles.searchFilters} horizontal>
+          <Ionicons
+            name="reorder-three-outline"
+            size={20}
+            style={styles.pillOutline}
+          />
           <Text style={[styles.pillIsActive, styles.pillOutline]}>Inbox</Text>
           <Text style={styles.pillOutline}>Live Chats</Text>
           <Text style={styles.pillOutline}>Requests</Text>
@@ -33,13 +37,7 @@ export default function Messages() {
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {CONVERSATIONS.map((chat) => (
-          <ConversationItem
-            key={chat.id}
-            avatar={chat.avatar}
-            username={chat.username}
-            lastMessage={chat.lastMessage}
-            time={chat.time}
-          />
+          <ConversationItem key={chat.id} conversation={chat} />
         ))}
       </ScrollView>
     </SafeAreaView>
