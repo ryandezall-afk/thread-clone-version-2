@@ -10,7 +10,8 @@ export interface Post {
   comments?: number | string;
   reposts?: number | string;
   shares?: number | string;
-};
+  views?: number | string;
+}
 
 export const INITIAL_POSTS: Post[] = [
   {
@@ -18,6 +19,7 @@ export const INITIAL_POSTS: Post[] = [
     username: "lucky_duck187",
     avatar: "https://i.pravatar.cc/150?img=12",
     uniqueContent: "What's New?",
+    views: "1,240",
   },
   {
     id: "2",
@@ -37,6 +39,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "61",
     reposts: "18",
     shares: "13",
+    views: "18,450",
   },
   {
     id: "3",
@@ -50,6 +53,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "101",
     reposts: "59",
     shares: "45",
+    views: "94,320",
   },
   {
     id: "4",
@@ -63,6 +67,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "214",
     reposts: "140",
     shares: "88",
+    views: "45,800",
   },
   {
     id: "5",
@@ -80,6 +85,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "89",
     reposts: "312",
     shares: "95",
+    views: "112,600",
   },
   {
     id: "6",
@@ -90,6 +96,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "430",
     reposts: "1,120",
     shares: "340",
+    views: "295,576",
   },
   {
     id: "7",
@@ -106,6 +113,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "38",
     reposts: "14",
     shares: "9",
+    views: "14,890",
   },
   {
     id: "8",
@@ -118,6 +126,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "812",
     reposts: "2.3K",
     shares: "650",
+    views: "348,200",
   },
   {
     id: "9",
@@ -134,6 +143,7 @@ export const INITIAL_POSTS: Post[] = [
     comments: "54",
     reposts: "72",
     shares: "31",
+    views: "52,140",
   },
   {
     id: "10",
@@ -146,5 +156,6 @@ export const INITIAL_POSTS: Post[] = [
     comments: "310",
     reposts: "45",
     shares: "19",
+    views: "29,400",
   },
 ];

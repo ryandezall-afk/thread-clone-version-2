@@ -56,7 +56,7 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
               )}
             </View>
 
-            {activity.type === "post" && (
+            {activity.type === "post" && thumbnail && (
               <>
                 <View style={styles.postPreview}>
                   <Text style={styles.postContent} numberOfLines={3}>

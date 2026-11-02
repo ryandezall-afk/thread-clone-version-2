@@ -1,9 +1,12 @@
 import { ActivityItem } from "@/components/ActivityItem";
 import { ACTIVITY_SECTIONS } from "@/data/activitiesData";
+import { useRouter } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ActivityScreen() {
+  const router = useRouter();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       {/* SECTION 1: HEADER */}
@@ -28,7 +31,15 @@ export default function ActivityScreen() {
             <Text style={styles.sectionTitle}>{section.title}</Text>
 
             {section.data.map((item) => (
-              <ActivityItem key={item.id} activity={item} />
+              <ActivityItem
+                key={item.id}
+                activity={item}
+                onPress={
+                  item.post
+                    ? () => router.push(`/thread/${item.post?.id}` as any)
+                    : undefined
+                }
+              />
             ))}
           </View>
         ))}
