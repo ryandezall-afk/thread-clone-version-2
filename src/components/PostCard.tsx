@@ -13,9 +13,15 @@ export interface PostCardProps {
   post: Post;
   onPress?: () => void;
   showFollowButton?: boolean;
+  hideMenu?: boolean;
 }
 
-export function PostCard({ post, onPress, showFollowButton }: PostCardProps) {
+export function PostCard({
+  post,
+  onPress,
+  showFollowButton,
+  hideMenu,
+}: PostCardProps) {
   return (
     <View>
       <View style={styles.card}>
@@ -40,8 +46,19 @@ export function PostCard({ post, onPress, showFollowButton }: PostCardProps) {
                 )}
                 {post.time && <Text style={styles.time}>{post.time}</Text>}
               </View>
-              {showFollowButton && (
-                <Text style={styles.followButton}>Follow</Text>
+              {(showFollowButton || !hideMenu) && (
+                <View style={styles.headerRight}>
+                  {showFollowButton && (
+                    <Text style={styles.followButton}>Follow</Text>
+                  )}
+                  {!hideMenu && (
+                    <Ionicons
+                      name="ellipsis-horizontal"
+                      size={18}
+                      color="#777777"
+                    />
+                  )}
+                </View>
               )}
             </View>
             {post.uniqueContent && (
@@ -211,6 +228,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  headerRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
   },
   userRow: {
     flexDirection: "row",

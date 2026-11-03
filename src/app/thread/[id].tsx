@@ -1,8 +1,10 @@
 import { PostCard } from "@/components/PostCard";
 import { INITIAL_POSTS } from "@/data/postsData";
-import { Ionicons } from "@expo/vector-icons";
+import { USER_PROFILE } from "@/data/userPosts";
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import {
+    Image,
     ScrollView,
     StyleSheet,
     Text,
@@ -14,7 +16,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function ThreadScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-  const post = INITIAL_POSTS.find((p) => p.id === id);
+  const post =
+    INITIAL_POSTS.find((p) => p.id === id) ??
+    USER_PROFILE.posts.find((p) => p.id === id);
 
   if (!post) {
     return (
@@ -56,12 +60,34 @@ export default function ThreadScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <PostCard post={post} showFollowButton={true} />
+        <PostCard post={post} showFollowButton={true} hideMenu={true} />
         <View style={styles.similarPostsContainer}></View>
         {post.replies?.map((reply) => (
-          <PostCard key={reply.id} post={reply as any} />
+          <PostCard key={reply.id} post={reply as any} hideMenu={true} />
         ))}
       </ScrollView>
+
+      {/* Pinned Bottom Reply Bar (matches real Threads stack view) */}
+      <View style={styles.replyBar}>
+        <View style={styles.replyPill}>
+          <Image
+            source={{ uri: USER_PROFILE.avatar }}
+            style={styles.replyAvatar}
+          />
+          <Text style={styles.replyPlaceholder} numberOfLines={1}>
+            Reply to {post.username}...
+          </Text>
+          <View style={styles.replyIcons}>
+            <Ionicons name="image-outline" size={20} color="#777777" />
+            <MaterialCommunityIcons
+              name="file-gif-box"
+              size={20}
+              color="#777777"
+            />
+            <Feather name="maximize-2" size={16} color="#777777" />
+          </View>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -70,7 +96,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#000000",
-    marginBottom: 60,
   },
   header: {
     flexDirection: "row",
@@ -112,7 +137,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 14,
   },
-  scrollContent: {},
+  scrollContent: {
+    paddingBottom: 60,
+  },
   similarPostsContainer: {
     marginTop: 10,
     paddingHorizontal: 16,
@@ -122,5 +149,46 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "flex-start",
     marginLeft: 10,
-  }
+  },
+  replyBar: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 8,
+    backgroundColor: "transparent",
+  },
+  replyAvatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
+  replyPill: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderWidth: 1,
+    borderColor: "#262626",
+    backgroundColor: "#161616",
+    borderRadius: 30,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    gap: 6,
+  },
+  replyPlaceholder: {
+    color: "#777777",
+    fontSize: 14,
+    flex: 1,
+    marginRight: 8,
+  },
+  replyIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
 });

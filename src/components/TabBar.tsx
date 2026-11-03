@@ -31,6 +31,11 @@ export function TabBar() {
     }).start();
   }, [isTabBarVisible]);
 
+  // Hide TabBar on Stack screens (e.g. Thread Detail screen)
+  if (pathname.includes("thread")) {
+    return null;
+  }
+
   return (
     <Animated.View style={[styles.navbar, { transform: [{ translateY }] }]}>
       {/* 1. Home */}
