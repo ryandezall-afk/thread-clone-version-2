@@ -7,35 +7,47 @@ import { CONVERSATIONS } from "../../data/conversationsData";
 export default function Messages() {
   return (
     <SafeAreaView style={styles.safeArea}>
-      {/* SECTION 1: HEADER */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Messages</Text>
-        <Ionicons name="create-outline" size={28} color="#FFFFFF" />
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[1]}
+      >
+        {/* Child 0: Messages Header & Search Bar (scrolls away) */}
+        <View style={styles.headerGroup}>
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Messages</Text>
+            <Ionicons name="create-outline" size={28} color="#FFFFFF" />
+          </View>
 
-      <View style={styles.messagesSearching}>
-        <View style={styles.searchContainer}>
-          <Ionicons name="search" size={18} color="#777777" />
-          <TextInput
-            placeholder="Search"
-            placeholderTextColor="#777777"
-            style={styles.searchInput}
-          />
+          <View style={styles.searchContainer}>
+            <Ionicons name="search" size={18} color="#777777" />
+            <TextInput
+              placeholder="Search"
+              placeholderTextColor="#777777"
+              style={styles.searchInput}
+            />
+          </View>
         </View>
-        <ScrollView contentContainerStyle={styles.searchFilters} horizontal>
-          <Ionicons
-            name="reorder-three-outline"
-            size={20}
-            style={styles.pillOutline}
-          />
-          <Text style={[styles.pillIsActive, styles.pillOutline]}>Inbox</Text>
-          <Text style={styles.pillOutline}>Live Chats</Text>
-          <Text style={styles.pillOutline}>Requests</Text>
-          <Text style={styles.pillOutline}>Requests</Text>
-        </ScrollView>
-      </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Child 1: Sticky Filter Pills (stays pinned at top) */}
+        <View style={styles.stickyFilterContainer}>
+          <ScrollView
+            contentContainerStyle={styles.searchFilters}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            <Ionicons
+              name="reorder-three-outline"
+              size={20}
+              style={styles.pillOutline}
+            />
+            <Text style={[styles.pillIsActive, styles.pillOutline]}>Inbox</Text>
+            <Text style={styles.pillOutline}>Live Chats</Text>
+            <Text style={styles.pillOutline}>Requests</Text>
+          </ScrollView>
+        </View>
+
+        {/* Child 2: Conversations List */}
         {CONVERSATIONS.map((chat) => (
           <ConversationItem key={chat.id} conversation={chat} />
         ))}
@@ -49,13 +61,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#000000",
   },
+  headerGroup: {
+    gap: 10,
+    marginBottom: 6,
+  },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
     paddingTop: 8,
-    paddingBottom: 12,
+    paddingBottom: 4,
   },
   headerTitle: {
     color: "#FFFFFF",
@@ -63,28 +79,30 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: -0.5,
   },
-  scrollContent: {
-    paddingBottom: 60,
-  },
-  messagesSearching: {
-    flexDirection: "column",
-    justifyContent: "space-between",
-    gap: 10,
-    marginBottom: 10,
-  },
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#161616",
-    marginHorizontal: 15,
+    marginHorizontal: 16,
     borderRadius: 14,
     paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
+  searchInput: {
+    flex: 1,
+    color: "#FFFFFF",
+    fontSize: 16,
+    marginLeft: 8,
+  },
+  stickyFilterContainer: {
+    backgroundColor: "#000000",
+    width: "100%",
+    paddingVertical: 8,
   },
   searchFilters: {
     flexDirection: "row",
     alignItems: "center",
-    paddingLeft: 15,
-    justifyContent: "space-evenly",
+    paddingHorizontal: 16,
     gap: 8,
   },
   pillOutline: {
@@ -98,7 +116,7 @@ const styles = StyleSheet.create({
   pillIsActive: {
     backgroundColor: "#1E1E1E",
   },
-  searchInput: {
-    fontSize: 18,
+  scrollContent: {
+    paddingBottom: 60,
   },
 });
