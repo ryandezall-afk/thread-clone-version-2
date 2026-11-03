@@ -18,19 +18,20 @@ export interface PostCardProps {
 export function PostCard({ post, onPress, showFollowButton }: PostCardProps) {
   return (
     <View>
-      <TouchableOpacity
-        onPress={onPress}
-        activeOpacity={0.7}
-        disabled={!onPress}
-      >
-        <View style={styles.card}>
-          {/* left side of card, profile pic */}
-          <View style={styles.leftSide}>
-            <Image source={{ uri: post.avatar }} style={styles.profilePic} />
-          </View>
+      <View style={styles.card}>
+        {/* left side of card, profile pic */}
+        <View style={styles.leftSide}>
+          <Image source={{ uri: post.avatar }} style={styles.profilePic} />
+        </View>
 
-          {/* right side of card, post content */}
-          <View style={styles.rightSide}>
+        {/* right side of card, post content */}
+        <View style={styles.rightSide}>
+          <TouchableOpacity
+            onPress={onPress}
+            activeOpacity={0.7}
+            disabled={!onPress}
+            style={styles.touchableContent}
+          >
             <View style={styles.headerRow}>
               <Text style={styles.username}>{post.username}</Text>
               {showFollowButton && (
@@ -53,71 +54,71 @@ export function PostCard({ post, onPress, showFollowButton }: PostCardProps) {
                   {p}
                 </Text>
               ))}
+          </TouchableOpacity>
 
-            {/* carousel of images if present */}
-            {post.images && post.images.length > 0 && (
-              <ScrollView
-                style={styles.postImageContainer}
-                contentContainerStyle={styles.postImageScrollContent}
-                horizontal={true}
-                showsHorizontalScrollIndicator={true}
-              >
-                {post.images.map((imgUri, index) => (
-                  <Image
-                    key={index}
-                    source={{ uri: imgUri }}
-                    style={styles.carouselImage}
-                  />
-                ))}
-              </ScrollView>
-            )}
+          {/* carousel of images if present */}
+          {post.images && post.images.length > 0 && (
+            <ScrollView
+              style={styles.postImageContainer}
+              contentContainerStyle={styles.postImageScrollContent}
+              horizontal={true}
+              showsHorizontalScrollIndicator={true}
+            >
+              {post.images.map((imgUri, index) => (
+                <Image
+                  key={index}
+                  source={{ uri: imgUri }}
+                  style={styles.carouselImage}
+                />
+              ))}
+            </ScrollView>
+          )}
 
-            {/* action row (likes, comments, reposts, share) */}
-            {(post.likes !== undefined || post.comments !== undefined) && (
-              <View style={styles.postInfo}>
-                {/* Like */}
-                <View style={styles.actionItem}>
-                  <Ionicons
-                    name="heart-outline"
-                    style={styles.actionIcon}
-                    size={20}
-                  />
-                  <Text style={styles.actionCount}>{post.likes ?? 0}</Text>
-                </View>
-
-                {/* Comment */}
-                <View style={styles.actionItem}>
-                  <Ionicons
-                    name="chatbubble-outline"
-                    style={styles.actionIcon}
-                    size={20}
-                  />
-                  <Text style={styles.actionCount}>{post.comments ?? 0}</Text>
-                </View>
-
-                {/* Repost */}
-                <View style={styles.actionItem}>
-                  <MaterialCommunityIcons
-                    name="repeat-variant"
-                    style={styles.actionIcon}
-                    size={22}
-                  />
-                  <Text style={styles.actionCount}>{post.reposts ?? 0}</Text>
-                </View>
-
-                {/* Share */}
-                <View style={styles.actionItem}>
-                  <Feather name="send" style={styles.actionIcon} size={18} />
-                  <Text style={styles.actionCount}>{post.shares ?? 0}</Text>
-                </View>
+          {/* action row (likes, comments, reposts, share) */}
+          {(post.likes !== undefined || post.comments !== undefined) && (
+            <View style={styles.postInfo}>
+              {/* Like */}
+              <View style={styles.actionItem}>
+                <Ionicons
+                  name="heart-outline"
+                  style={styles.actionIcon}
+                  size={20}
+                />
+                <Text style={styles.actionCount}>{post.likes ?? 0}</Text>
               </View>
-            )}
-          </View>
-        </View>
 
-        {/* Divider line between posts */}
-        <View style={styles.divider} />
-      </TouchableOpacity>
+              {/* Comment */}
+              <View style={styles.actionItem}>
+                <Ionicons
+                  name="chatbubble-outline"
+                  style={styles.actionIcon}
+                  size={20}
+                />
+                <Text style={styles.actionCount}>{post.comments ?? 0}</Text>
+              </View>
+
+              {/* Repost */}
+              <View style={styles.actionItem}>
+                <MaterialCommunityIcons
+                  name="repeat-variant"
+                  style={styles.actionIcon}
+                  size={22}
+                />
+                <Text style={styles.actionCount}>{post.reposts ?? 0}</Text>
+              </View>
+
+              {/* Share */}
+              <View style={styles.actionItem}>
+                <Feather name="send" style={styles.actionIcon} size={18} />
+                <Text style={styles.actionCount}>{post.shares ?? 0}</Text>
+              </View>
+            </View>
+          )}
+        </View>
+      </View>
+
+      {/* Divider line between posts */}
+      <View style={styles.divider} />
     </View>
   );
 }
@@ -139,6 +140,9 @@ const styles = StyleSheet.create({
   rightSide: {
     flex: 1,
     justifyContent: "space-evenly",
+    gap: 6,
+  },
+  touchableContent: {
     gap: 6,
   },
   username: {
