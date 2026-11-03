@@ -3,9 +3,8 @@ import { INITIAL_POSTS, Post } from "./postsData";
 export interface ActivityItem {
   id: string;
   type: "post" | "follow";
-  time: string;
+  time?: string;
   subtitle: string;
-  isVerified?: boolean;
   post?: Post;
   user?: { username: string; avatar: string };
 }
@@ -22,9 +21,8 @@ export const ACTIVITY_SECTIONS: ActivitySection[] = [
       {
         id: "act-1",
         type: "post",
-        time: "10h",
         subtitle: "Suggested thread",
-        post: INITIAL_POSTS[1], // reuses catchmenever_68_.ach (has image & text!)
+        post: INITIAL_POSTS[1], // reuses catchmenever_68_.ach (has time: "10h" in postsData!)
       },
     ],
   },
@@ -45,18 +43,14 @@ export const ACTIVITY_SECTIONS: ActivitySection[] = [
       {
         id: "act-3",
         type: "post",
-        time: "1w",
         subtitle: "Because you follow",
-        isVerified: true,
-        post: INITIAL_POSTS[2], // reuses streamer_conspiracy
+        post: INITIAL_POSTS[2], // reuses streamer_conspiracy (has isVerified & time: "1w" in postsData!)
       },
       {
         id: "act-4",
         type: "post",
-        time: "3w",
         subtitle: "Conversation you missed",
-        isVerified: true,
-        post: INITIAL_POSTS[3], // reuses dev_danielle
+        post: INITIAL_POSTS[3], // reuses dev_danielle (has isVerified & time: "3w" in postsData!)
       },
     ],
   },

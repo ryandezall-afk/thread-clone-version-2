@@ -33,7 +33,13 @@ export function PostCard({ post, onPress, showFollowButton }: PostCardProps) {
             style={styles.touchableContent}
           >
             <View style={styles.headerRow}>
-              <Text style={styles.username}>{post.username}</Text>
+              <View style={styles.userRow}>
+                <Text style={styles.username}>{post.username}</Text>
+                {post.isVerified && (
+                  <Ionicons name="checkmark-circle" size={14} color="#0095F6" />
+                )}
+                {post.time && <Text style={styles.time}>{post.time}</Text>}
+              </View>
               {showFollowButton && (
                 <Text style={styles.followButton}>Follow</Text>
               )}
@@ -205,5 +211,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  userRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  time: {
+    color: "#777777",
+    fontSize: 14,
   },
 });

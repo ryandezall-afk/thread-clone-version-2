@@ -13,6 +13,8 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
   const postContent =
     activity.post?.paragraphs?.[0] ?? activity.post?.content ?? "";
   const thumbnail = activity.post?.images?.[0];
+  const isVerified = activity.post?.isVerified;
+  const time = activity.post?.time ?? activity.time;
   return (
     <View>
       <TouchableOpacity
@@ -30,14 +32,14 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
               <View style={styles.userRow}>
                 <View style={styles.topRow}>
                   <Text style={styles.username}>{username}</Text>
-                  {activity.isVerified && (
+                  {isVerified && (
                     <Ionicons
                       name="checkmark-circle"
                       size={14}
                       color="#0095F6"
                     />
                   )}
-                  <Text style={styles.timeActivity}>{activity.time}</Text>
+                  {time && <Text style={styles.timeActivity}>{time}</Text>}
                 </View>
                 <View style={styles.bottomRow}>
                   <Text style={styles.subtitle}>{activity.subtitle}</Text>

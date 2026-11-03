@@ -2,6 +2,8 @@ export interface Post {
   id: string;
   username: string;
   avatar: string;
+  isVerified?: boolean;
+  time?: string;
   uniqueContent?: string;
   paragraphs?: string[];
   content?: string;
@@ -28,6 +30,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "1",
     username: "lucky_duck187",
     avatar: "https://i.pravatar.cc/150?img=12",
+    time: "2h",
     uniqueContent: "What's New?",
     views: "1,240",
     replies: [
@@ -63,6 +66,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "2",
     username: "catchmenever_68_.ach",
     avatar: "https://i.pravatar.cc/150?img=33",
+    time: "10h",
     paragraphs: [
       "Check out this amazing sunset! I went hiking today and captured this beautiful moment.",
       "Golden hour hit the ridge just right tonight. Still can’t believe we caught the sky looking like painted watercolor.",
@@ -120,6 +124,8 @@ export const INITIAL_POSTS: Post[] = [
     id: "3",
     username: "streamer_conspiracy",
     avatar: "https://i.pravatar.cc/150?img=60",
+    isVerified: true,
+    time: "1w",
     paragraphs: [
       "Remember when streaming was supposed to save us from cable? For a glorious few years, paying $8 a month gave you instant access to virtually every movie and show you actually cared about, with zero commercial interruptions and an interface that just worked. It felt like the future had finally arrived, completely dismantling the bloated, predatory channel bundles that made traditional television so unbearable to deal with.",
       'Fast forward to today, and we’ve somehow engineered an ecosystem that is exponentially worse and more expensive than cable ever was. Every legacy media studio decided they needed their own proprietary platform, chopped up classic catalogs into exclusive licensing silos, and steadily hiked prices every six months. Now you need four or five separate subscriptions just to follow basic pop culture, only to still get hit with 90-second unskippable ad breaks on an "ad-supported tier" you are literally already paying for.',
@@ -172,6 +178,8 @@ export const INITIAL_POSTS: Post[] = [
     id: "4",
     username: "dev_danielle",
     avatar: "https://i.pravatar.cc/150?img=47",
+    isVerified: true,
+    time: "3w",
     paragraphs: [
       "There is no greater panic than code that works flawlessly on your laptop, but throws a 30-line red screen error the second you test it on your physical phone at midnight.",
       "Root cause? A missing semicolon in a JSON file.",
@@ -215,6 +223,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "5",
     username: "neon_wanderer",
     avatar: "https://i.pravatar.cc/150?img=15",
+    time: "9h",
     paragraphs: [
       "Tokyo rainy nights hit completely different. Neon reflections in the Shibuya puddles make the entire city look like Blade Runner.",
     ],
@@ -262,6 +271,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "6",
     username: "daily_minimalist",
     avatar: "https://i.pravatar.cc/150?img=20",
+    time: "8h",
     content: "Less is more. Especially when writing CSS.",
     likes: "8,921",
     comments: "430",
@@ -300,6 +310,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "7",
     username: "coffee_and_syntax",
     avatar: "https://i.pravatar.cc/150?img=28",
+    time: "5h",
     paragraphs: [
       "Weekend coding sprint fueled by double-shot oat flat whites and lo-fi beats. Building a mobile app in Expo React Native today!",
     ],
@@ -345,6 +356,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "8",
     username: "retro_gamer_rob",
     avatar: "https://i.pravatar.cc/150?img=52",
+    time: "12h",
     paragraphs: [
       "Nothing in modern tech will ever match the sheer terror and adrenaline of waiting to see if your scratched PlayStation 2 disc would boot past the startup sound.",
     ],
@@ -396,6 +408,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "9",
     username: "arch_digest_daily",
     avatar: "https://i.pravatar.cc/150?img=68",
+    time: "6h",
     paragraphs: [
       "Brutalist architecture in modern Scandinavian libraries. The raw concrete angles paired with warm natural timber create insane geometric shadows.",
     ],
@@ -442,6 +455,7 @@ export const INITIAL_POSTS: Post[] = [
     id: "10",
     username: "tech_insider_yyc",
     avatar: "https://i.pravatar.cc/150?img=11",
+    time: "7h",
     paragraphs: [
       "Serious question: What's one mobile app whose UI design you genuinely enjoy opening every day? For me it's Linear and Threads.",
     ],

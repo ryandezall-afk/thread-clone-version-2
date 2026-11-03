@@ -44,6 +44,7 @@ export const USER_PROFILE: UserProfile = {
       id: "prof-2",
       username: "freddy_123",
       avatar: "https://i.pravatar.cc/150?img=12",
+      time: "2d",
       paragraphs: [
         "Finally got around to rewatching Dune Part 2 in IMAX. The sound design alone deserves every award this season.",
         "That worm riding sequence was cinematic perfection.",
@@ -59,6 +60,7 @@ export const USER_PROFILE: UserProfile = {
       id: "prof-3",
       username: "freddy_123",
       avatar: "https://i.pravatar.cc/150?img=12",
+      time: "4d",
       paragraphs: [
         "Andor season 2 cannot come soon enough. Still the best piece of Star Wars media we've had in a decade.",
       ],
@@ -72,6 +74,7 @@ export const USER_PROFILE: UserProfile = {
       id: "prof-4",
       username: "freddy_123",
       avatar: "https://i.pravatar.cc/150?img=12",
+      time: "1w",
       paragraphs: [
         "New vinyl arrived today! Weekend listening sorted. Drop your current album on repeat below 🎧",
       ],
@@ -89,6 +92,7 @@ export const USER_PROFILE: UserProfile = {
       id: "prof-5",
       username: "freddy_123",
       avatar: "https://i.pravatar.cc/150?img=12",
+      time: "2w",
       paragraphs: [
         "Daredevil: Born Again filming leaks look incredible. If they keep the hallway fight choreography from season 1 we are in for a treat.",
       ],
