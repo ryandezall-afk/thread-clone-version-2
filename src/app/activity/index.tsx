@@ -9,23 +9,33 @@ export default function ActivityScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      {/* SECTION 1: HEADER */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Activity</Text>
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[1]}
+      >
+        {/* Child 0: Big Activity title that scrolls up and away */}
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Activity</Text>
+        </View>
 
-      <View>
-        <ScrollView contentContainerStyle={styles.searchFilters} horizontal>
-          <Text style={[styles.pillIsActive, styles.pillOutline]}>All</Text>
-          <Text style={styles.pillOutline}>Follows</Text>
-          <Text style={styles.pillOutline}>Conversations</Text>
-          <Text style={styles.pillOutline}>Mentions</Text>
-          <Text style={styles.pillOutline}>People you follow</Text>
-          <Text style={styles.pillOutline}>Reposts</Text>
-        </ScrollView>
-      </View>
+        {/* Child 1: Sticky Filter Pills that stay pinned at the top */}
+        <View style={styles.stickyFilterContainer}>
+          <ScrollView
+            contentContainerStyle={styles.searchFilters}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            <Text style={[styles.pillIsActive, styles.pillOutline]}>All</Text>
+            <Text style={styles.pillOutline}>Follows</Text>
+            <Text style={styles.pillOutline}>Conversations</Text>
+            <Text style={styles.pillOutline}>Mentions</Text>
+            <Text style={styles.pillOutline}>People you follow</Text>
+            <Text style={styles.pillOutline}>Reposts</Text>
+          </ScrollView>
+        </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Child 2: Activity sections list */}
         {ACTIVITY_SECTIONS.map((section) => (
           <View key={section.title}>
             <Text style={styles.sectionTitle}>{section.title}</Text>
@@ -54,18 +64,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
     paddingTop: 8,
-    paddingBottom: 12,
+    paddingBottom: 4,
   },
   headerTitle: {
     color: "#FFFFFF",
     fontSize: 32,
     fontWeight: "bold",
     letterSpacing: -0.5,
+    paddingHorizontal: 16,
+  },
+  stickyFilterContainer: {
+    backgroundColor: "#000000",
+    width: "100%",
+    paddingVertical: 8,
   },
   pillOutline: {
     color: "#FFFFFF",
@@ -81,7 +93,7 @@ const styles = StyleSheet.create({
   searchFilters: {
     flexDirection: "row",
     alignItems: "center",
-    paddingLeft: 15,
+    paddingHorizontal: 15,
     justifyContent: "space-evenly",
     gap: 8,
   },
