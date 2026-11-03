@@ -15,7 +15,7 @@ This application faithfully recreates the visual layout, navigation patterns, an
 - **Hybrid Navigation:** Expo Router tab navigation combined with parameterized Stack navigation (`/thread/[id]`).
 - **Dynamic Content:** Parameterized routes, multi-paragraph text, horizontal image carousels, and single-source-of-truth TypeScript models.
 - **Native Look & Feel:** Pure black theme (`#000000`), sticky section headers (`stickyHeaderIndices`), verified checkmark badges (`#0095F6`), and Threads-style typography.
-- **Bonus Marks (+2 Extra Marks):**
+- **Bonus:**
   - **Animated Auto-Hiding Tab Bar:** Uses React Native's `Animated` API to translate the bottom navigation bar out of view when scrolling down and smoothly restore it when scrolling up.
   - **Full Profile Screen:** Features display name dropdown, custom bio, clickable links, interest tags, overlapping follower avatars stack, profile action pills, and sticky category tabs.
 
