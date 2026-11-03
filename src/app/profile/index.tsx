@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Screen 4: Profile Screen (User bio, interest pills, overlapping followers, sticky tabs)
+
 import { PostCard } from "@/components/PostCard";
 import { USER_PROFILE } from "@/data/userPosts";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
+      {/* Top Header Icons */}
       <View style={styles.header}>
         <Ionicons name="bar-chart-outline" size={24} color="#FFFFFF" />
 
@@ -23,6 +27,7 @@ export default function ProfileScreen() {
         stickyHeaderIndices={[1]}
       >
         <View style={styles.container}>
+          {/* User info & avatar */}
           <View style={styles.userHeader}>
             <View style={styles.userHeaderBox}>
               <View style={styles.nameRow}>
@@ -37,6 +42,7 @@ export default function ProfileScreen() {
             />
           </View>
 
+          {/* Bio, link, and custom interest tags */}
           <View style={styles.headerContent}>
             <Text style={styles.bio}>{USER_PROFILE.bio}</Text>
             <Text style={styles.link}>{USER_PROFILE.link}</Text>
@@ -51,6 +57,7 @@ export default function ProfileScreen() {
               </View>
             </View>
 
+            {/* Overlapping follower avatars */}
             <View style={styles.followersRow}>
               <View style={styles.followerAvatars}>
                 {USER_PROFILE.followerAvatars.map((uri, index) => (
@@ -69,6 +76,7 @@ export default function ProfileScreen() {
               </Text>
             </View>
 
+            {/* Profile management action buttons */}
             <View style={styles.profileManagement}>
               <Text style={styles.pillManageProfile}>Edit Profile</Text>
               <Text style={styles.pillManageProfile}>View Insights</Text>
@@ -82,6 +90,7 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* Sticky tabs row */}
         <View style={styles.stickyHeader}>
           <View style={styles.tabsRow}>
             <Text style={[styles.tabText, styles.activeTabText]}>Threads</Text>
@@ -91,6 +100,7 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* User published threads feed */}
         {USER_PROFILE.posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}

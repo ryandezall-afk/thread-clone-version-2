@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Screen 5: Thread Detail Screen (Stack flow, parameterized [id], post view count, nested replies)
+
 import { PostCard } from "@/components/PostCard";
 import { INITIAL_POSTS } from "@/data/postsData";
 import { USER_PROFILE } from "@/data/userPosts";

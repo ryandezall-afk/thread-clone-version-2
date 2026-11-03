@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Data Model: UserProfile & ProfileInterest (Current user profile data, bio, tags, published threads)
+
 import { Post } from "./postsData";
 
 export interface ProfileInterest {

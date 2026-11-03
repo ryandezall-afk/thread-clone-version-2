@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Screen 1: Home Feed Screen (Main post feed with scroll-driven tab bar animation)
+
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useRef } from "react";

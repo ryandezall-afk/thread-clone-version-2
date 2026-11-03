@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Root Layout: Wraps screens in safe area provider and global animated TabBar
+
 import { Slot } from "expo-router";
 import { View, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";

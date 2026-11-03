@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Data Model: ActivityItem & ActivitySection (Notifications, follow suggestions, post activity links)
+
 import { INITIAL_POSTS, Post } from "./postsData";
 
 export interface ActivityItem {

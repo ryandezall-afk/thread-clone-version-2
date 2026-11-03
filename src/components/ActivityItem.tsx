@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Component: ActivityItem (Renders both follow suggestions and post interaction notification cards)
+
 import { ActivityItem as ActivityItemType } from "@/data/activitiesData";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";

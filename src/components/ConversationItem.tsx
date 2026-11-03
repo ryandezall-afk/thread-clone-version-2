@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Component: ConversationItem (Direct messaging list item: avatar, username, last message & time)
+
 import { Conversation } from "@/data/conversationsData";
 import { Image, StyleSheet, Text, View } from "react-native";
 

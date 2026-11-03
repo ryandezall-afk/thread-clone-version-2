@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Screen 2: Messages Screen (Search bar, sticky category filters, conversation list)
+
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

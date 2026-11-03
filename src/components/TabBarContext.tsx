@@ -1,5 +1,8 @@
 
 
+// Assignment 2 - Threads Clone
+// Context: TabBarContext (Manages global visibility state for animated bottom TabBar)
+
 import React, { createContext, useContext, useState } from "react";
 
 type TabBarContextType = {

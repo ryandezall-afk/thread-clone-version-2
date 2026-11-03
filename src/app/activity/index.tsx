@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Screen 3: Activity Screen (Chronological notifications, follow suggestions, sticky filter pills)
+
 import { ActivityItem } from "@/components/ActivityItem";
 import { ACTIVITY_SECTIONS } from "@/data/activitiesData";
 import { useRouter } from "expo-router";

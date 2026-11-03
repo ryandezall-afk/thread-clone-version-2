@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Data Model: Post & PostReplies (Single source of truth for thread posts across all screens)
+
 export interface Post {
   id: string;
   username: string;

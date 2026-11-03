@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Data Model: Conversation (Direct messages mock data, contact usernames, avatars, snippets)
+
 import { ImageSourcePropType } from "react-native";
 
 export interface Conversation {

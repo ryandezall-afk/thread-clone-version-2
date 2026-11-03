@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Component: PostCard (Universal thread post card: avatars, verification, carousels, action counts)
+
 import { Post } from "@/data/postsData";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import {

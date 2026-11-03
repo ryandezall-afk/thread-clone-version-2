@@ -1,3 +1,6 @@
+// Assignment 2 - Threads Clone
+// Component: Animated TabBar (Hides on scroll down, reveals on scroll up, hidden on stack screens)
+
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
 import { useEffect, useRef } from "react";
