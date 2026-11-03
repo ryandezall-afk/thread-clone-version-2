@@ -21,7 +21,7 @@ This application faithfully recreates the visual layout, navigation patterns, an
 
 ---
 
-## 📸 Reference Screenshots (5/5 Marks)
+## 📸 Reference Screenshots
 
 The interface was recreated from high-resolution reference captures of the official Threads mobile application. All reference captures are preserved inside the [`reference-screenshots/`](./reference-screenshots/) directory:
 
