@@ -48,7 +48,7 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
                 <Text style={styles.followButton}>Follow</Text>
               )}
 
-              {activity.type === "post" && (
+              {activity.type === "post" && thumbnail && (
                 <Image
                   source={{ uri: thumbnail }}
                   style={styles.postThumbnail}
@@ -56,7 +56,7 @@ export function ActivityItem({ activity, onPress }: ActivityItemProps) {
               )}
             </View>
 
-            {activity.type === "post" && thumbnail && (
+            {activity.type === "post" && (
               <>
                 <View style={styles.postPreview}>
                   <Text style={styles.postContent} numberOfLines={3}>

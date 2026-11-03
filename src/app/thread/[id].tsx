@@ -36,12 +36,14 @@ export default function ThreadScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} activeOpacity={0.7}>
-          <Ionicons name="arrow-back" size={26} color="#FFFFFF" />
-        </TouchableOpacity>
         <View style={styles.headerTitleContainer}>
-          <Text style={styles.headerTitle}>Thread</Text>
-          <Text style={styles.threadViews}>{post.views} views</Text>
+          <TouchableOpacity onPress={() => router.back()} activeOpacity={0.7}>
+            <Ionicons name="arrow-back" size={26} color="#FFFFFF" />
+          </TouchableOpacity>
+          <View style={styles.headerViewsContainer}>
+            <Text style={styles.headerTitle}>Thread</Text>
+            <Text style={styles.threadViews}>{post.views} views</Text>
+          </View>
         </View>
         <View style={styles.headerIconRight}>
           <Ionicons name="notifications-outline" size={24} color="#FFFFFF" />
@@ -54,7 +56,11 @@ export default function ThreadScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <PostCard post={post} />
+        <PostCard post={post} showFollowButton={true} />
+        <View style={styles.similarPostsContainer}></View>
+        {post.replies?.map((reply) => (
+          <PostCard key={reply.id} post={reply as any} />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -64,20 +70,26 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#000000",
+    marginBottom: 60,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 16,
-    backgroundColor: "#1C1C1C",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 12,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#1C1C1C",
   },
   headerTitleContainer: {
     flex: 1,
     alignItems: "center",
+    flexDirection: "row",
   },
   headerTitle: {
     color: "#FFFFFF",
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: "bold",
   },
   notFoundContainer: {
@@ -91,13 +103,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   threadViews: {
-    color: "#FFFFFF",
-    fontSize: 14,
-    marginTop: 4,
+    color: "#777777",
+    fontSize: 12,
+    marginTop: 2,
   },
   headerIconRight: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 14,
   },
   scrollContent: {},
+  similarPostsContainer: {
+    marginTop: 10,
+    paddingHorizontal: 16,
+  },
+  headerViewsContainer: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginLeft: 10,
+  }
 });

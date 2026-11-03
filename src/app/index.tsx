@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { useRef } from "react";
 import {
   NativeScrollEvent,
@@ -16,6 +17,7 @@ import { INITIAL_POSTS } from "../data/postsData";
 export default function Index() {
   const { setIsTabBarVisible } = useTabBar();
   const lastScrollY = useRef(0);
+  const router = useRouter();
 
   // Detect scroll direction: hide on scroll down, show on scroll up
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -46,7 +48,15 @@ export default function Index() {
         scrollEventThrottle={16}
       >
         {INITIAL_POSTS.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard
+            key={post.id}
+            post={post}
+            onPress={
+              post.id !== "1"
+                ? () => router.push(`/thread/${post.id}` as any)
+                : undefined
+            }
+          />
         ))}
       </ScrollView>
     </SafeAreaView>

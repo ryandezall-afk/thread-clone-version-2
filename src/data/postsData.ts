@@ -11,6 +11,16 @@ export interface Post {
   reposts?: number | string;
   shares?: number | string;
   views?: number | string;
+  replies?: PostReplies[];
+}
+
+export interface PostReplies {
+  id: string;
+  username: string;
+  avatar: string;
+  content: string;
+  time: string;
+  likes?: number | string;
 }
 
 export const INITIAL_POSTS: Post[] = [
@@ -20,6 +30,34 @@ export const INITIAL_POSTS: Post[] = [
     avatar: "https://i.pravatar.cc/150?img=12",
     uniqueContent: "What's New?",
     views: "1,240",
+    replies: [
+      {
+        id: "rep-1-1",
+        username: "pixel_craftsman",
+        avatar: "https://i.pravatar.cc/150?img=59",
+        content:
+          "Working on a new mobile app layout! Loving Expo Router so far.",
+        time: "3h",
+        likes: "5",
+      },
+      {
+        id: "rep-1-2",
+        username: "samantha.codes",
+        avatar: "https://i.pravatar.cc/150?img=44",
+        content:
+          "Just finished debugging an async state issue. Time for coffee ☕️",
+        time: "2h",
+        likes: "12",
+      },
+      {
+        id: "rep-1-3",
+        username: "urban_wanderer_",
+        avatar: "https://i.pravatar.cc/150?img=17",
+        content: "Heading out for an evening street photography walk!",
+        time: "45m",
+        likes: "3",
+      },
+    ],
   },
   {
     id: "2",
@@ -40,6 +78,43 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "18",
     shares: "13",
     views: "18,450",
+    replies: [
+      {
+        id: "rep-2-1",
+        username: "pixel_craftsman",
+        avatar: "https://i.pravatar.cc/150?img=59",
+        content:
+          "That sky gradient in the second slide is unreal. What camera did you take this on?",
+        time: "4h",
+        likes: "24",
+      },
+      {
+        id: "rep-2-2",
+        username: "mountain_air_explores",
+        avatar: "https://i.pravatar.cc/150?img=50",
+        content:
+          "Which trail is this? Looks like the Ha Ling ridge trail in Canmore!",
+        time: "3h",
+        likes: "18",
+      },
+      {
+        id: "rep-2-3",
+        username: "urban_wanderer_",
+        avatar: "https://i.pravatar.cc/150?img=17",
+        content:
+          "Hiking back down in the dark is always an adrenaline rush haha. Worth it for that view.",
+        time: "1h",
+        likes: "9",
+      },
+      {
+        id: "rep-2-4",
+        username: "retro_vibes99",
+        avatar: "https://i.pravatar.cc/150?img=47",
+        content: "Adding this to my weekend bucket list immediately 🙌",
+        time: "20m",
+        likes: "4",
+      },
+    ],
   },
   {
     id: "3",
@@ -54,6 +129,44 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "59",
     shares: "45",
     views: "94,320",
+    replies: [
+      {
+        id: "rep-3-1",
+        username: "dev_daily_dose",
+        avatar: "https://i.pravatar.cc/150?img=15",
+        content:
+          "Physical media is making a comeback for this exact reason. You never truly own digital streaming.",
+        time: "6h",
+        likes: "89",
+      },
+      {
+        id: "rep-3-2",
+        username: "synthwave_dreams",
+        avatar: "https://i.pravatar.cc/150?img=36",
+        content:
+          "I cancelled 3 subscriptions last month and set up a home Plex server. Best decision ever.",
+        time: "5h",
+        likes: "42",
+      },
+      {
+        id: "rep-3-3",
+        username: "retro_gamer_rob",
+        avatar: "https://i.pravatar.cc/150?img=52",
+        content:
+          "The ad tier on a paid subscription is the most insulting development in tech history.",
+        time: "3h",
+        likes: "135",
+      },
+      {
+        id: "rep-3-4",
+        username: "tech_insider_yyc",
+        avatar: "https://i.pravatar.cc/150?img=11",
+        content:
+          "Spot on. We came full circle right back to 1990s cable bundles, just with logins instead of coax cables.",
+        time: "1h",
+        likes: "31",
+      },
+    ],
   },
   {
     id: "4",
@@ -68,6 +181,35 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "140",
     shares: "88",
     views: "45,800",
+    replies: [
+      {
+        id: "rep-4-1",
+        username: "samantha.codes",
+        avatar: "https://i.pravatar.cc/150?img=44",
+        content:
+          "Wait until you spend 3 hours debugging only to find out you forgot to re-run npm install 😂",
+        time: "5h",
+        likes: "67",
+      },
+      {
+        id: "rep-4-2",
+        username: "pixel_craftsman",
+        avatar: "https://i.pravatar.cc/150?img=59",
+        content:
+          "The universal developer rite of passage! Glad it wasn't a memory leak.",
+        time: "4h",
+        likes: "21",
+      },
+      {
+        id: "rep-4-3",
+        username: "coffee_and_syntax",
+        avatar: "https://i.pravatar.cc/150?img=28",
+        content:
+          "Always the tiniest punctuation mark causing the biggest existential crisis.",
+        time: "2h",
+        likes: "40",
+      },
+    ],
   },
   {
     id: "5",
@@ -86,6 +228,35 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "312",
     shares: "95",
     views: "112,600",
+    replies: [
+      {
+        id: "rep-5-1",
+        username: "neo_tokyo.drift",
+        avatar: "https://i.pravatar.cc/150?img=68",
+        content:
+          "Shibuya crossing in the rain with clear umbrellas is pure cinema.",
+        time: "8h",
+        likes: "54",
+      },
+      {
+        id: "rep-5-2",
+        username: "chill_lofi_beats",
+        avatar: "https://i.pravatar.cc/150?img=53",
+        content:
+          "This photo needs a lo-fi soundtrack playing behind it immediately.",
+        time: "6h",
+        likes: "33",
+      },
+      {
+        id: "rep-5-3",
+        username: "urban_wanderer_",
+        avatar: "https://i.pravatar.cc/150?img=17",
+        content:
+          "Incredible color grading on these shots. Did you shoot with a prime lens?",
+        time: "3h",
+        likes: "15",
+      },
+    ],
   },
   {
     id: "6",
@@ -97,6 +268,33 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "1,120",
     shares: "340",
     views: "295,576",
+    replies: [
+      {
+        id: "rep-6-1",
+        username: "samantha.codes",
+        avatar: "https://i.pravatar.cc/150?img=44",
+        content: "100%! The best code is the code you don't have to write.",
+        time: "7h",
+        likes: "82",
+      },
+      {
+        id: "rep-6-2",
+        username: "dev_daily_dose",
+        avatar: "https://i.pravatar.cc/150?img=15",
+        content:
+          "Flexbox and CSS Grid replaced 200 lines of float hackery, bless modern web standards.",
+        time: "5h",
+        likes: "49",
+      },
+      {
+        id: "rep-6-3",
+        username: "pixel_craftsman",
+        avatar: "https://i.pravatar.cc/150?img=59",
+        content: "Keep it simple, keep it fast 🎯",
+        time: "1h",
+        likes: "19",
+      },
+    ],
   },
   {
     id: "7",
@@ -114,6 +312,34 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "14",
     shares: "9",
     views: "14,890",
+    replies: [
+      {
+        id: "rep-7-1",
+        username: "espresso_enthusiast",
+        avatar: "https://i.pravatar.cc/150?img=32",
+        content:
+          "Oat flat whites are the superior developer fuel. Good luck with the sprint!",
+        time: "4h",
+        likes: "11",
+      },
+      {
+        id: "rep-7-2",
+        username: "dev_danielle",
+        avatar: "https://i.pravatar.cc/150?img=47",
+        content:
+          "Expo Router makes multi-screen setups so clean. Enjoy the build!",
+        time: "2h",
+        likes: "8",
+      },
+      {
+        id: "rep-7-3",
+        username: "lucky_duck187",
+        avatar: "https://i.pravatar.cc/150?img=12",
+        content: "Drop the lo-fi playlist link when you get a chance!",
+        time: "1h",
+        likes: "5",
+      },
+    ],
   },
   {
     id: "8",
@@ -127,6 +353,44 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "2.3K",
     shares: "650",
     views: "348,200",
+    replies: [
+      {
+        id: "rep-8-1",
+        username: "retro_vibes99",
+        avatar: "https://i.pravatar.cc/150?img=47",
+        content:
+          "That red screen of death with the swirling cubes gave an entire generation trust issues.",
+        time: "10h",
+        likes: "194",
+      },
+      {
+        id: "rep-8-2",
+        username: "streamer_conspiracy",
+        avatar: "https://i.pravatar.cc/150?img=60",
+        content:
+          "Wiping the disc on your t-shirt like that would magically fix the laser calibration 😂",
+        time: "7h",
+        likes: "112",
+      },
+      {
+        id: "rep-8-3",
+        username: "vinyl_archive",
+        avatar: "https://i.pravatar.cc/150?img=28",
+        content:
+          "Putting the console vertically or upside down was peak desperate engineering.",
+        time: "4h",
+        likes: "78",
+      },
+      {
+        id: "rep-8-4",
+        username: "synthwave_dreams",
+        avatar: "https://i.pravatar.cc/150?img=36",
+        content:
+          "Still have my PS2 hooked up to a CRT in the basement. Pure nostalgia.",
+        time: "2h",
+        likes: "35",
+      },
+    ],
   },
   {
     id: "9",
@@ -144,6 +408,35 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "72",
     shares: "31",
     views: "52,140",
+    replies: [
+      {
+        id: "rep-9-1",
+        username: "urban_wanderer_",
+        avatar: "https://i.pravatar.cc/150?img=17",
+        content:
+          "The contrast between cold concrete and warm birch wood is unbeatable.",
+        time: "5h",
+        likes: "27",
+      },
+      {
+        id: "rep-9-2",
+        username: "daily_minimalist",
+        avatar: "https://i.pravatar.cc/150?img=20",
+        content:
+          "Natural lighting geometry done right. Amazing reference photo.",
+        time: "3h",
+        likes: "14",
+      },
+      {
+        id: "rep-9-3",
+        username: "pixel_craftsman",
+        avatar: "https://i.pravatar.cc/150?img=59",
+        content:
+          "Would love to spend a quiet rainy afternoon working in that library.",
+        time: "1h",
+        likes: "8",
+      },
+    ],
   },
   {
     id: "10",
@@ -157,5 +450,43 @@ export const INITIAL_POSTS: Post[] = [
     reposts: "45",
     shares: "19",
     views: "29,400",
+    replies: [
+      {
+        id: "rep-10-1",
+        username: "samantha.codes",
+        avatar: "https://i.pravatar.cc/150?img=44",
+        content:
+          "Raycast on desktop and Craft on mobile. Both have insane micro-animations.",
+        time: "6h",
+        likes: "39",
+      },
+      {
+        id: "rep-10-2",
+        username: "coffee_and_syntax",
+        avatar: "https://i.pravatar.cc/150?img=28",
+        content:
+          "Airbnb's bottom sheet gesture animations are the gold standard for React Native.",
+        time: "4h",
+        likes: "25",
+      },
+      {
+        id: "rep-10-3",
+        username: "dev_danielle",
+        avatar: "https://i.pravatar.cc/150?img=47",
+        content:
+          "Threads dark mode aesthetic is super clean and minimalist. Great choice.",
+        time: "2h",
+        likes: "18",
+      },
+      {
+        id: "rep-10-4",
+        username: "lucky_duck187",
+        avatar: "https://i.pravatar.cc/150?img=12",
+        content:
+          "Flighty and Bear! The typography attention to detail is unmatched.",
+        time: "30m",
+        likes: "10",
+      },
+    ],
   },
 ];
